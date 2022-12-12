@@ -4,7 +4,7 @@ import { MainPageComponent } from './weather/main-page/main-page.component';
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
-  {path}
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({

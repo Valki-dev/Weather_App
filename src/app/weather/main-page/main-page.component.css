@@ -5,6 +5,9 @@
 }
 
 .card {
+    background-color: rgb(54, 82, 121);
+    color: white;
+    height: 472px;
     width: 900px;
 }
 

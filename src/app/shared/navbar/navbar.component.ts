@@ -12,4 +12,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  currentDay: string = new Date().toLocaleDateString();
+  
 }

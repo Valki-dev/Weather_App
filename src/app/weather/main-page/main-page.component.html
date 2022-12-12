@@ -1,8 +1,19 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-12 col-lg-12 d-flex justify-content-center">
             <div class="card mt-4">
                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 col-lg-12 d-flex justify-content-around">
+                            <h2 class="text-center">{{getCity.name}} - {{(getCity.main.temp - 273).toFixed(0)}}º</h2>
+
+                            <img src="http://openweathermap.org/img/w/{{getCity.weather[0].icon}}.png" alt="">
+                        </div>
+
+                        <div class="col-12 col-lg-12">
+                            <h3>Predicción: {{getCity.weather[0].description}}</h3>
+                        </div>
+                    </div>
                     
                 </div>
             </div>
