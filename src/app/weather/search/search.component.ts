@@ -21,10 +21,14 @@ export class SearchComponent {
       this.service.weatherMain = response.weather[0].main;
       console.log(this.service.weatherMain);
       this.setWeatherDescription.emit(this.service.weatherMain);
-    });
-    this.search = "";
 
+      this.service.getFiveDaysForecast().subscribe((response: any) => {
+        this.service.forecast = response.list; 
+      });    
+    });
     
+    
+    this.search = "";
   }
 
 }

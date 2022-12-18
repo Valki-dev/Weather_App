@@ -1,6 +1,6 @@
 <div class="row rojo">
     <div class="col-12 col-lg-12 mt-5">
-        <div *ngIf="allDaysForecast.length > 0; else cardWithoutData">
+        <div *ngIf="getForecast; else cardWithoutData">
             <div class="row d-flex justify-content-around">
                 <div class="col-12 col-lg-2 mt-5 mb-5">
                     <div class="card mb-5">

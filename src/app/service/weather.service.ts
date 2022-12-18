@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Tiempo } from '../weather/interfaces/weather.interfaces';
 import { AppComponent } from '../app.component';
-import { FiveDaysForecast } from '../weather/interfaces/fiveDaysForecast.interfaces';
+import { FiveDaysForecast, List } from '../weather/interfaces/fiveDaysForecast.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,7 @@ export class WeatherService {
   public storedSearch: string = "";
   public cityFound!: Tiempo;
   public weatherMain: string = "";
+  public forecast!: List[]; 
 
   searchCity(search: string): Observable<Tiempo> {
     search = search.trim();
@@ -35,11 +36,8 @@ export class WeatherService {
     return this.httpClient.get<Tiempo>(``);
   }
 
-  getFiveDaysForecast() {
-    if(this.cityFound) {
+  getFiveDaysForecast() {    
       return this.httpClient.get<FiveDaysForecast>(`${this.fiveDaysForecastEndpoint}?lat=${this.cityFound.coord.lat}&lon=${this.cityFound.coord.lon}&appid=${this.api_key}`);
-    }
-    return this.httpClient.get<FiveDaysForecast>(``);
   }
 
 }
