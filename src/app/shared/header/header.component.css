@@ -2,6 +2,20 @@ a {
     text-decoration: none;
 }
 
+#header {
+    background-color: rgb(54, 82, 121);
+}
+
 h4 {
     color: white;
+}
+
+img {
+    width: 90px;
+}
+
+.nublado {
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-image: url("../../../assets/nublado.jpg");
 }

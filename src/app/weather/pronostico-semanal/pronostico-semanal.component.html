@@ -1,0 +1,213 @@
+<div class="row">
+    <div class="col-12 col-lg-12 mt-5">
+        <div *ngIf="allDaysForecast.length > 0">
+            <div class="row d-flex justify-content-around">
+                <div class="col-12 col-lg-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <h4>Día {{firstDayForecast[0].dt_txt | date : "dd/MM"}}</h4>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 col-lg-12 d-flex justify-content-around align-items-center">
+                                    <h4>{{(maxFirstTemp - 273).toFixed(0)}}º / {{(minFirstTemp - 273).toFixed(0)}}º</h4>
+                                    <img src="http://openweathermap.org/img/wn/{{firstDayForecast[5].weather[0].icon}}@2x.png" alt="Imagen no disponible">
+                                </div>
+                            </div>  
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <div class="accordion accordion-flush mb-2" id="accordionFlushExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="flush-headingOne">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                Por hora
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body d-flex align-items-center" *ngFor="let forecast of firstDayForecast">
+                                                    <p class="me-3">{{forecast.dt_txt | date: "HH:mm"}}</p>
+                                                    <p class="me-3 temperatura"><b>{{(forecast.main.temp - 273).toFixed(0)}}º</b></p>
+                                                    <p class="me-3"><img class="iconoHora" src="http://openweathermap.org/img/wn/{{forecast.weather[0].icon}}@2x.png" alt=""></p>
+                                                    <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-moisture me-2" viewBox="0 0 16 16">
+                                                        <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z"/>
+                                                      </svg> {{forecast.main.humidity}}%</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                          
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <h4>Día {{secondDayForecast[0].dt_txt | date : "dd/MM"}}</h4>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 col-lg-12 d-flex justify-content-around align-items-center">
+                                    <h4>{{(maxSecondTemp - 273).toFixed(0)}}º/{{(minSecondTemp - 273).toFixed(0)}}º</h4>
+                                    <img src="http://openweathermap.org/img/wn/{{secondDayForecast[5].weather[0].icon}}@2x.png" alt="Imagen no disponible">
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <div class="accordion accordion-flush mb-2" id="accordionFlushExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="flush-headingTwo">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                                Por hora
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body d-flex align-items-center" *ngFor="let forecast of secondDayForecast">
+                                                    <p class="me-3">{{forecast.dt_txt | date: "HH:mm"}}</p>
+                                                    <p class="me-3 temperatura"><b>{{(forecast.main.temp - 273).toFixed(0)}}º</b></p>
+                                                    <p class="me-3"><img class="iconoHora" src="http://openweathermap.org/img/wn/{{forecast.weather[0].icon}}@2x.png" alt=""></p>
+                                                    <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-moisture me-2" viewBox="0 0 16 16">
+                                                        <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z"/>
+                                                      </svg> {{forecast.main.humidity}}%</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                             
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <h4>Día {{thirdDayForecast[0].dt_txt | date : "dd/MM"}}</h4>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 col-lg-12 d-flex justify-content-around align-items-center">
+                                    <h4>{{(maxThirdTemp - 273).toFixed(0)}}º/{{(minThirdTemp - 273).toFixed(0)}}º</h4>
+                                    <img src="http://openweathermap.org/img/wn/{{thirdDayForecast[5].weather[0].icon}}@2x.png" alt="Imagen no disponible">
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <div class="accordion accordion-flush mb-2" id="accordionFlushExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="flush-headingThree">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                                Por hora
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body d-flex align-items-center" *ngFor="let forecast of thirdDayForecast">
+                                                    <p class="me-3">{{forecast.dt_txt | date: "HH:mm"}}</p>
+                                                    <p class="me-3 temperatura"><b>{{(forecast.main.temp - 273).toFixed(0)}}º</b></p>
+                                                    <p class="me-3"><img class="iconoHora" src="http://openweathermap.org/img/wn/{{forecast.weather[0].icon}}@2x.png" alt=""></p>
+                                                    <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-moisture me-2" viewBox="0 0 16 16">
+                                                        <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z"/>
+                                                      </svg> {{forecast.main.humidity}}%</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <h4>Día {{fourthDayForecast[0].dt_txt | date : "dd/MM"}}</h4>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 col-lg-12 d-flex justify-content-around align-items-center">
+                                    <h4>{{(maxFourthTemp - 273).toFixed(0)}}º/{{(minFourthTemp - 273).toFixed(0)}}º</h4>
+                                    <img src="http://openweathermap.org/img/wn/{{fourthDayForecast[5].weather[0].icon}}@2x.png" alt="Imagen no disponible">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <div class="accordion accordion-flush mb-2" id="accordionFlushExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="flush-headingFour">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                                Por hora
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body d-flex align-items-center" *ngFor="let forecast of fourthDayForecast">
+                                                    <p class="me-3">{{forecast.dt_txt | date: "HH:mm"}}</p>
+                                                    <p class="me-3 temperatura"><b>{{(forecast.main.temp - 273).toFixed(0)}}º</b></p>
+                                                    <p class="me-3"><img class="iconoHora" src="http://openweathermap.org/img/wn/{{forecast.weather[0].icon}}@2x.png" alt=""></p>
+                                                    <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-moisture me-2" viewBox="0 0 16 16">
+                                                        <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z"/>
+                                                      </svg> {{forecast.main.humidity}}%</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                              
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <h4>Día {{fifthDayForecast[0].dt_txt | date : "dd/MM"}}</h4>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 col-lg-12 d-flex justify-content-around align-items-center">
+                                    <h4>{{(maxFifthTemp - 273).toFixed(0)}}º/{{(minFifthTemp - 273).toFixed(0)}}º</h4>
+                                    <img src="http://openweathermap.org/img/wn/{{fifthDayForecast[4].weather[0].icon}}@2x.png" alt="Imagen no disponible">
+                                </div>
+                            </div>  
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <div class="accordion accordion-flush mb-2" id="accordionFlushExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="flush-headingFifth">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFifth" aria-expanded="false" aria-controls="flush-collapseFifth">
+                                                Por hora
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseFifth" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body d-flex align-items-center" *ngFor="let forecast of fifthDayForecast">
+                                                    <p class="me-3">{{forecast.dt_txt | date: "HH:mm"}}</p>
+                                                    <p class="me-3 temperatura"><b>{{(forecast.main.temp - 273).toFixed(0)}}º</b></p>
+                                                    <p class="me-3"><img class="iconoHora" src="http://openweathermap.org/img/wn/{{forecast.weather[0].icon}}@2x.png" alt=""></p>
+                                                    <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-moisture me-2" viewBox="0 0 16 16">
+                                                        <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z"/>
+                                                      </svg> {{forecast.main.humidity}}%</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

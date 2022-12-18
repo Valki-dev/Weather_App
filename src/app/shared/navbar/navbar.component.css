@@ -6,3 +6,7 @@ a:hover{color: white; font-weight: bold;}
 .navbar {
     background-color: rgb(29, 53, 93) !important;
 }
+
+.nublado{
+    background-color: rgb(40, 58, 89) !important;
+}

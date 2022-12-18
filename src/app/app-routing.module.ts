@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './weather/main-page/main-page.component';
+import { PronosticoSemanalComponent } from './weather/pronostico-semanal/pronostico-semanal.component';
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
+  {path: 'pronostico-semanal', component: PronosticoSemanalComponent},
   {path: '**', redirectTo: ''}
 ];
 

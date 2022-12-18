@@ -2,5 +2,5 @@
 body {
     background: rgb(29,53,93) !important;
     background: linear-gradient(190deg, rgba(29,53,93,1) 0%, rgba(178,216,251,1) 100%) !important;
-    height: 100vh;
+    height: 100%;
 }

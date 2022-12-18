@@ -1,14 +1,21 @@
-.container-fluid {
-    /* background: rgb(29,53,93) !important;
-    background: linear-gradient(190deg, rgba(29,53,93,1) 0%, rgba(178,216,251,1) 100%) !important;
-    height: 83vh; */
+.card {
+    background: rgba(54, 82, 121, 0.467);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    min-height: 300px;
+    width: 600px;
+    
 }
 
-.card {
-    background-color: rgb(54, 82, 121);
-    color: white;
-    height: 472px;
-    width: 900px;
+h1 {
+    font-size: xxx-large;
+}
+
+img {
+    width: 120px;
 }
 
 .rojo {

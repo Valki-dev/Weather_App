@@ -1,17 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  @ViewChild("menu") menu?: ElementRef<HTMLDivElement>
 
   currentDay: string = new Date().toLocaleDateString();
+
+  sendWeatherDescription(weatherDescription: string) {
+    console.log('ENTRA',weatherDescription);
+    if (weatherDescription === 'Clouds') {
+      this.menu?.nativeElement.classList.add("nublado");
+    }
+  }
   
 }
