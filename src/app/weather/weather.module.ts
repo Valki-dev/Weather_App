@@ -5,6 +5,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PronosticoSemanalComponent } from './pronostico-semanal/pronostico-semanal.component';
+import { ContaminacionComponent } from './contaminacion/contaminacion.component';
 
 
 
@@ -12,7 +13,8 @@ import { PronosticoSemanalComponent } from './pronostico-semanal/pronostico-sema
   declarations: [
     SearchComponent,
     MainPageComponent,
-    PronosticoSemanalComponent
+    PronosticoSemanalComponent,
+    ContaminacionComponent
   ],
   imports: [
     CommonModule,

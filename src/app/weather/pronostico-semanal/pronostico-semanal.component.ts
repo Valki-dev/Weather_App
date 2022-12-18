@@ -94,7 +94,7 @@ export class PronosticoSemanalComponent implements OnInit {
         this.maxFifthTemp = Math.max(...fifthTemps);
         this.minFifthTemp = Math.min(...fifthTemps);        
 
-        console.log(this.firstDayForecast);
+        console.log(this.fifthDayForecast);
         
       });
     }

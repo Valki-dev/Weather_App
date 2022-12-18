@@ -1,9 +1,9 @@
-<div class="row">
+<div class="row rojo">
     <div class="col-12 col-lg-12 mt-5">
-        <div *ngIf="allDaysForecast.length > 0">
+        <div *ngIf="allDaysForecast.length > 0; else cardWithoutData">
             <div class="row d-flex justify-content-around">
-                <div class="col-12 col-lg-2">
-                    <div class="card">
+                <div class="col-12 col-lg-2 mt-5 mb-5">
+                    <div class="card mb-5">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 col-lg-12">
@@ -43,8 +43,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-2">
-                    <div class="card">
+                <div class="col-12 col-lg-2 mt-5 mb-5">
+                    <div class="card mb-5">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 col-lg-12">
@@ -84,8 +84,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-2">
-                    <div class="card">
+                <div class="col-12 col-lg-2 mt-5 mb-5">
+                    <div class="card mb-5">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 col-lg-12">
@@ -125,8 +125,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-2">
-                    <div class="card">
+                <div class="col-12 col-lg-2 mt-5 mb-5">
+                    <div class="card mb-5">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 col-lg-12">
@@ -166,8 +166,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-2">
-                    <div class="card">
+                <div class="col-12 col-lg-2 mt-5 mb-5">
+                    <div class="card mb-5">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 col-lg-12">
@@ -209,5 +209,14 @@
                 </div>
             </div>
         </div>
+        <ng-template #cardWithoutData>
+            <div class="col-12 col-lg-12 d-flex justify-content-center">
+                <div class="card mt-5 mb-5 nonData">
+                    <div class="card-body d-flex align-items-center">
+                        <h2 class="text-center">Busca una ubicación para obtener datos</h2>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
     </div>
 </div>
