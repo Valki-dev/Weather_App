@@ -11,8 +11,20 @@ import { FiveDaysForecast, List } from '../weather/interfaces/fiveDaysForecast.i
 export class WeatherService {
 
   constructor(private httpClient: HttpClient) { 
-    if(localStorage.getItem("storedSearch")) {
-      this.storedSearch = JSON.parse(localStorage.getItem("storedSearch")!);
+    if(localStorage.getItem("storedSearchs")) {
+      this.searchs = JSON.parse(localStorage.getItem("storedSearchs")!);
+
+      if(this.searchs) {
+        this.searchCity(this.searchs[this.searchs.length - 1]).subscribe((response: any) => {
+          this.cityFound = response;
+          this.weatherMain = response.weather[0].main;
+    
+          this.getFiveDaysForecast().subscribe((response: any) => {
+            this.forecast = response.list; 
+          });    
+        });
+      }
+      
     }
   }
 
@@ -22,16 +34,32 @@ export class WeatherService {
   private fiveDaysForecastEndpoint: string = "https://api.openweathermap.org/data/2.5/forecast";
 
   public storedSearch: string = "";
+  public searchs: string[] = [];
   public cityFound!: Tiempo;
   public weatherMain: string = "";
   public forecast!: List[]; 
 
   searchCity(search: string): Observable<Tiempo> {
+    console.log("YES");
+    
     search = search.trim();
     search = search.toLowerCase();
     if(search != "") {
-      localStorage.setItem("storedSearch", JSON.stringify(search));
+      if(!this.searchs.includes(search)) {
+        if(this.searchs.length >= 5) {
+          this.searchs.shift();
+          this.searchs.push(search);
+
+          localStorage.setItem("storedSearchs", JSON.stringify(this.searchs));
+        } else {
+          this.searchs.push(search);
+
+          localStorage.setItem("storedSearchs", JSON.stringify(this.searchs));
+        }
+      }
+      
       return this.httpClient.get<Tiempo>(`${this.searchCityEndpoint}${this.api_key}&q=${search}&lang=sp`);
+      
     }
     return this.httpClient.get<Tiempo>(``);
   }
