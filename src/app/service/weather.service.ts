@@ -53,20 +53,8 @@ export class WeatherService {
     search = search.toLowerCase();
     if(search != "") {
       if(!this.searchs.includes(search)) {
-        if(this.searchs.length >= 5) {
-          this.searchs.shift();
-          this.searchs.push(search);
-
-          localStorage.setItem("storedSearchs", JSON.stringify(this.searchs));
-        } else {
-          this.searchs.push(search);
-
-          localStorage.setItem("storedSearchs", JSON.stringify(this.searchs));
-        }
+        return this.httpClient.get<Tiempo>(`${this.searchCityEndpoint}${this.api_key}&q=${search}&lang=sp`);
       }
-      
-      return this.httpClient.get<Tiempo>(`${this.searchCityEndpoint}${this.api_key}&q=${search}&lang=sp`);
-      
     }
     return this.httpClient.get<Tiempo>(``);
   }
