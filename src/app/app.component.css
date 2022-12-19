@@ -1,5 +1,6 @@
 .main {
     padding: 0% !important;
+    min-height: 50vh !important;
 }
 
 .footer {

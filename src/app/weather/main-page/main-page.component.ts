@@ -20,6 +20,10 @@ export class MainPageComponent {
     return this.service.storedSearch;
   }
 
+  get getShowAlert() {
+    return this.service.showAlert;
+  }
+
   searchCity(search: string) {
     this.service.searchCity(search).subscribe((response: any) => {
       this.service.cityFound = response;

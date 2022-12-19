@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../../service/weather.service';
 
 @Component({
@@ -8,18 +8,9 @@ import { WeatherService } from '../../service/weather.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private service: WeatherService) { }
-
-  @ViewChild("header") header?: ElementRef<HTMLDivElement>
+  constructor() { }
   
   ngOnInit(): void {
-  }
-
-  sendWeatherDescription(weatherDescription: string) {
-    // console.log('desc',weatherDescription);
-    if (weatherDescription === 'Clouds') {
-      this.header?.nativeElement.classList.add("nublado");
-    }
   }
 
 }

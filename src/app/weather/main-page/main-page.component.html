@@ -1,5 +1,13 @@
 <div class="container">
     <div *ngIf="getCity; else cardWithoutData">
+        <div class="row" *ngIf="getShowAlert">
+            <div class="col-12 col-lg-6 mt-4">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    No se ha encontrado la ciudad
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+            </div>
+        </div>
         <div class="row d-flex justify-content-center">
             <!--Temperature card-->
             <div class="col-12 col-lg-9 d-flex justify-content-center">
@@ -102,7 +110,7 @@
 
     <ng-template #cardWithoutData>
         <div class="col-12 col-lg-12 mt-5 d-flex justify-content-center">
-            <div class="card mt-5 mb-5 info">
+            <div class="card mt-2 info">
                 <div class="card-body d-flex align-items-center">
                     <h2 class="text-center">Busca una ubicación para obtener datos</h2>
                 </div>

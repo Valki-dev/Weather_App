@@ -45,6 +45,7 @@ export class WeatherService {
   public weatherMain: string = "";
   public forecast!: List[]; 
   public airPollution!: AirPollution;
+  public showAlert: boolean = false;
 
   searchCity(search: string): Observable<Tiempo> {
     console.log("YES");
@@ -52,6 +53,7 @@ export class WeatherService {
     search = search.trim();
     search = search.toLowerCase();
     if(search != "") {
+      this.showAlert = false;
       if(!this.searchs.includes(search)) {
         if(this.searchs.length >= 5) {
           this.httpClient.get<Tiempo>(`${this.searchCityEndpoint}${this.api_key}&q=${search}&lang=sp`).subscribe((response:any) => {
@@ -60,7 +62,7 @@ export class WeatherService {
             localStorage.setItem("storedSearchs", JSON.stringify(this.searchs));
             
           }, (error: any) => {
-            alert(error)
+            this.showAlert = true;
             return
           })
           
@@ -70,7 +72,7 @@ export class WeatherService {
             localStorage.setItem("storedSearchs", JSON.stringify(this.searchs));
             
           }, (error: any) => {
-            alert(error)
+            this.showAlert = true;
             return
           })
         }

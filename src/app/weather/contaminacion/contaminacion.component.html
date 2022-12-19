@@ -1,6 +1,6 @@
-<div class="row control">
-    <div class="col-12 col-lg-12 mt-5 d-flex justify-content-center">
-        <div *ngIf="getAirPollution; else cardWithoutData">
+<div *ngIf="getAirPollution; else cardWithoutData">
+    <div class="row control">
+            <div class="col-12 col-lg-12 mt-5 d-flex justify-content-center">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -72,14 +72,17 @@
                 </div>
             </div>
         </div>
-        <ng-template #cardWithoutData>
-            <div class="col-12 col-lg-12 d-flex justify-content-center">
-                <div class="card mt-5 mb-5 nonData">
-                    <div class="card-body d-flex align-items-center">
-                        <h2 class="text-center">Busca una ubicación para obtener datos</h2>
-                    </div>
-                </div>
-            </div>
-        </ng-template>
     </div>
 </div>
+<ng-template #cardWithoutData>
+    <div class="row control">
+        <div class="col-12 col-lg-12 mt-5 d-flex justify-content-center">
+            <div class="card mt-2 info">
+                <div class="card-body d-flex align-items-center">
+                    <h2 class="text-center">Busca una ubicación para obtener datos</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</ng-template>
