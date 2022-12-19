@@ -178,7 +178,7 @@
                             <div class="row">
                                 <div class="col-12 col-lg-12 d-flex justify-content-around align-items-center">
                                     <h4>{{(maxFifthTemp - 273).toFixed(0)}}º/{{(minFifthTemp - 273).toFixed(0)}}º</h4>
-                                    <img src="http://openweathermap.org/img/wn/{{fifthDayForecast[4].weather[0].icon}}@2x.png" alt="Imagen no disponible">
+                                    <img src="http://openweathermap.org/img/wn/{{fifthDayForecast[fifthDayForecast.length - 1].weather[0].icon}}@2x.png" alt="Imagen no disponible">
                                 </div>
                             </div>  
                             <div class="row">

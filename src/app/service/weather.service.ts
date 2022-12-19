@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Tiempo } from '../weather/interfaces/weather.interfaces';
 import { AppComponent } from '../app.component';
 import { FiveDaysForecast, List } from '../weather/interfaces/fiveDaysForecast.interfaces';
+import { AirPollution } from '../weather/interfaces/airPollution.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -32,12 +33,14 @@ export class WeatherService {
 
   private searchCityEndpoint: string = "https://api.openweathermap.org/data/2.5/weather?&appid=";
   private fiveDaysForecastEndpoint: string = "https://api.openweathermap.org/data/2.5/forecast";
+  private airPollutionEndpoint: string = "https://api.openweathermap.org/data/2.5/air_pollution";
 
   public storedSearch: string = "";
   public searchs: string[] = [];
   public cityFound!: Tiempo;
   public weatherMain: string = "";
   public forecast!: List[]; 
+  public airPollution!: AirPollution;
 
   searchCity(search: string): Observable<Tiempo> {
     console.log("YES");
@@ -65,7 +68,11 @@ export class WeatherService {
   }
 
   getFiveDaysForecast() {    
-      return this.httpClient.get<FiveDaysForecast>(`${this.fiveDaysForecastEndpoint}?lat=${this.cityFound.coord.lat}&lon=${this.cityFound.coord.lon}&appid=${this.api_key}`);
+    return this.httpClient.get<FiveDaysForecast>(`${this.fiveDaysForecastEndpoint}?lat=${this.cityFound.coord.lat}&lon=${this.cityFound.coord.lon}&appid=${this.api_key}`);
+  }
+
+  getAirPollution() {
+    return this.httpClient.get<AirPollution>(`${this.airPollutionEndpoint}?lat=${this.cityFound.coord.lat}&lon=${this.cityFound.coord.lon}&appid=${this.api_key}`);
   }
 
 }

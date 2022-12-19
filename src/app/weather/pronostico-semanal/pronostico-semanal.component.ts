@@ -51,8 +51,15 @@ export class PronosticoSemanalComponent {
 
 
   private getData() {
-    
+    this.firstDayForecast = [];
+    this.secondDayForecast = [];
+    this.thirdDayForecast = [];
+    this.fourthDayForecast = [];
+    this.fifthDayForecast = [];
+
     this.service.forecast.filter(forecast => {
+      
+
       if(new Date(forecast.dt_txt).getDate() == this.currentDay) {
         this.currentDayForecast.push(forecast);
       } 
@@ -94,6 +101,8 @@ export class PronosticoSemanalComponent {
     const fifthTemps = this.fifthDayForecast.map( day =>  day.main.temp);
     this.maxFifthTemp = Math.max(...fifthTemps);
     this.minFifthTemp = Math.min(...fifthTemps);
+
+    console.log(this.firstDayForecast);
   }
 
 }
