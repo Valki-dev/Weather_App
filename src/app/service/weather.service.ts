@@ -91,8 +91,6 @@ export class WeatherService {
       return this.httpClient.get<Tiempo>(`${this.searchCityEndpoint}${this.api_key}&q=${search}&lang=sp`);
       
     }
-    // return this.httpClient.get<Tiempo>(``);
-  
 
   getFiveDaysForecast() {    
     return this.httpClient.get<FiveDaysForecast>(`${this.fiveDaysForecastEndpoint}?lat=${this.cityFound.coord.lat}&lon=${this.cityFound.coord.lon}&appid=${this.api_key}`);

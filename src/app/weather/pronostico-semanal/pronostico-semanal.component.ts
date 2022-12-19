@@ -53,7 +53,6 @@ export class PronosticoSemanalComponent {
     return this.service.isLoading;
   }
 
-
   private getData() {
     this.firstDayForecast = [];
     this.secondDayForecast = [];
@@ -89,7 +88,6 @@ export class PronosticoSemanalComponent {
       }
     });
 
-    const currentTemps = this.currentDayForecast.map( day =>  day.main.temp)
     const firstTemps = this.firstDayForecast.map( day =>  day.main.temp)
     this.maxFirstTemp = Math.max(...firstTemps);
     this.minFirstTemp = Math.min(...firstTemps);

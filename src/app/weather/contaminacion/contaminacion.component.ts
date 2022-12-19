@@ -41,11 +41,4 @@ export class ContaminacionComponent{
     return this.service.isLoading;
   }
 
-  changeStyles(airQuality: string) {
-    switch (airQuality) {
-      case "Bueno":
-        airQuality
-    }
-  }
-
 }

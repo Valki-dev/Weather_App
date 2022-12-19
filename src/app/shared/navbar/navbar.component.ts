@@ -9,15 +9,6 @@ export class NavbarComponent {
 
   constructor() { }
 
-  @ViewChild("menu") menu?: ElementRef<HTMLDivElement>
-
   currentDay: string = new Date().toLocaleDateString();
-
-  sendWeatherDescription(weatherDescription: string) {
-    console.log('ENTRA',weatherDescription);
-    if (weatherDescription === 'Clouds') {
-      this.menu?.nativeElement.classList.add("nublado");
-    }
-  }
   
 }
