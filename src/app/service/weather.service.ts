@@ -53,11 +53,35 @@ export class WeatherService {
     search = search.toLowerCase();
     if(search != "") {
       if(!this.searchs.includes(search)) {
-        return this.httpClient.get<Tiempo>(`${this.searchCityEndpoint}${this.api_key}&q=${search}&lang=sp`);
+        if(this.searchs.length >= 5) {
+          this.httpClient.get<Tiempo>(`${this.searchCityEndpoint}${this.api_key}&q=${search}&lang=sp`).subscribe((response:any) => {
+            this.searchs.shift();
+            this.searchs.push(search);
+            localStorage.setItem("storedSearchs", JSON.stringify(this.searchs));
+            
+          }, (error: any) => {
+            alert(error)
+            return
+          })
+          
+        } else {
+          this.httpClient.get<Tiempo>(`${this.searchCityEndpoint}${this.api_key}&q=${search}&lang=sp`).subscribe((response:any) => {
+            this.searchs.push(search);
+            localStorage.setItem("storedSearchs", JSON.stringify(this.searchs));
+            
+          }, (error: any) => {
+            alert(error)
+            return
+          })
+        }
       }
+      
+    }      
+      return this.httpClient.get<Tiempo>(`${this.searchCityEndpoint}${this.api_key}&q=${search}&lang=sp`);
+      
     }
-    return this.httpClient.get<Tiempo>(``);
-  }
+    // return this.httpClient.get<Tiempo>(``);
+  
 
   getFiveDaysForecast() {    
     return this.httpClient.get<FiveDaysForecast>(`${this.fiveDaysForecastEndpoint}?lat=${this.cityFound.coord.lat}&lon=${this.cityFound.coord.lon}&appid=${this.api_key}`);
