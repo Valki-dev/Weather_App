@@ -24,6 +24,10 @@ export class MainPageComponent {
     return this.service.showAlert;
   }
 
+  get getIsLoading() {
+    return this.service.isLoading;
+  }
+
   searchCity(search: string) {
     this.service.searchCity(search).subscribe((response: any) => {
       this.service.cityFound = response;

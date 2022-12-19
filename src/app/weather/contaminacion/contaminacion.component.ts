@@ -37,6 +37,10 @@ export class ContaminacionComponent{
     return this.service.airPollution;
   }
 
+  get getIsLoading() {
+    return this.service.isLoading;
+  }
+
   changeStyles(airQuality: string) {
     switch (airQuality) {
       case "Bueno":

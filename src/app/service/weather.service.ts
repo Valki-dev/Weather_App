@@ -46,9 +46,10 @@ export class WeatherService {
   public forecast!: List[]; 
   public airPollution!: AirPollution;
   public showAlert: boolean = false;
+  public isLoading: boolean = false;
 
   searchCity(search: string): Observable<Tiempo> {
-    console.log("YES");
+    this.isLoading = true;
     
     search = search.trim();
     search = search.toLowerCase();
@@ -57,27 +58,35 @@ export class WeatherService {
       if(!this.searchs.includes(search)) {
         if(this.searchs.length >= 5) {
           this.httpClient.get<Tiempo>(`${this.searchCityEndpoint}${this.api_key}&q=${search}&lang=sp`).subscribe((response:any) => {
+            if(response) {
+              this.isLoading = false;
+            }
             this.searchs.shift();
             this.searchs.push(search);
             localStorage.setItem("storedSearchs", JSON.stringify(this.searchs));
             
           }, (error: any) => {
             this.showAlert = true;
+            this.isLoading = false;
             return
           })
           
         } else {
           this.httpClient.get<Tiempo>(`${this.searchCityEndpoint}${this.api_key}&q=${search}&lang=sp`).subscribe((response:any) => {
+            if(response) {
+              this.isLoading = false;
+            }
             this.searchs.push(search);
             localStorage.setItem("storedSearchs", JSON.stringify(this.searchs));
             
           }, (error: any) => {
             this.showAlert = true;
+            this.isLoading = false;
             return
           })
         }
       }
-      
+      this.isLoading = false;
     }      
       return this.httpClient.get<Tiempo>(`${this.searchCityEndpoint}${this.api_key}&q=${search}&lang=sp`);
       

@@ -49,6 +49,10 @@ export class PronosticoSemanalComponent {
     return false;
   }
 
+  get getIsLoading() {
+    return this.service.isLoading;
+  }
+
 
   private getData() {
     this.firstDayForecast = [];
