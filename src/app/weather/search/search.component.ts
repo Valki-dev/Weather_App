@@ -28,6 +28,7 @@ export class SearchComponent {
 
       this.service.getAirPollution().subscribe((response: any) => {
         this.service.airPollution = response;
+        console.log(response);
       });
     });
     

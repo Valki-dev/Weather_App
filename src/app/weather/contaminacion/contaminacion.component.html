@@ -4,7 +4,70 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <h4>Calidad del aire: {{getAirPollution.list[0].main.aqi}}</h4>
+                        <div class="col-12 col-lg-12 mt-3 d-flex justify-content-center">
+                            <h4>Calidad del aire: <b [ngClass]="{'color1':airQuality=='Muy bueno','color2':airQuality=='Bueno', 'color3':airQuality=='Medio', 'color4':airQuality=='Bajo', 'color5':airQuality=='Muy bajo'}" class="ms-3">{{airQuality}}</b></h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-12 mt-3">
+                                <hr>
+                                <h5 class="me-3">Principales contaminantes</h5>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-6 d-flex align-items-start flex-column">
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 ms-2 d-flex align-items-center">
+                                        <p class="me-3 pollutant"><b>CO:</b></p>
+                                        <p class="me-3">{{getAirPollution.list[0].components['co']}} μg/m3</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 ms-2 d-flex align-items-center">
+                                        <p class="me-3 pollutant"><b>NO:</b></p>
+                                        <p class="me-3">{{getAirPollution.list[0].components['no']}} μg/m3</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 ms-2 d-flex align-items-center">
+                                        <p class="me-3 pollutant"><b>NO₂ :</b></p>
+                                        <p class="me-3">{{getAirPollution.list[0].components['no2']}} μg/m3</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 ms-2 d-flex align-items-center">
+                                        <p class="me-3 pollutant"><b>O₃:</b></p>
+                                        <p class="me-3">{{getAirPollution.list[0].components['o3']}} μg/m3</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 d-flex align-items-start flex-column">
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 ms-2 d-flex align-items-center">
+                                        <p class="me-3 pollutant"><b>SO₂:</b></p>
+                                        <p class="me-3">{{getAirPollution.list[0].components['so2']}} μg/m3</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 ms-2 d-flex align-items-center">
+                                        <p class="me-3 pollutant"><b>PM₂.₅:</b></p>
+                                        <p class="me-3">{{getAirPollution.list[0].components['pm2_5']}} μg/m3</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 ms-2 d-flex align-items-center">
+                                        <p class="me-3 pollutant"><b>PM₁₀:</b></p>
+                                        <p class="me-3">{{getAirPollution.list[0].components['pm10']}} μg/m3</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 ms-2 d-flex align-items-center">
+                                        <p class="me-3 pollutant"><b> NH₃:</b></p>
+                                        <p class="me-3">{{getAirPollution.list[0].components['nh3']}} μg/m3</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

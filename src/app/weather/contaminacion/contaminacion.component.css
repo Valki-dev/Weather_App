@@ -9,6 +9,40 @@
     width: 600px;
 }
 
+.pollutant{
+    font-size: x-large;
+}
+
 .control {
     margin: 0%;
+}
+
+.color1 {
+    background-color: rgba(0, 128, 0, 0.733) !important;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.color2 {
+    background-color: rgba(8, 68, 8, 0.733) !important;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.color3 {
+    background-color: rgba(132, 124, 13, 0.733) !important;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.color4 {
+    background-color: rgba(147, 92, 10, 0.756) !important;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.color5 {
+    background-color: rgba(147, 44, 10, 0.756) !important;
+    padding: 10px;
+    border-radius: 10px;
 }

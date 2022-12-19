@@ -27,7 +27,11 @@ export class MainPageComponent {
 
       this.service.getFiveDaysForecast().subscribe((response: any) => {
         this.service.forecast = response.list; 
-      });    
+      });  
+      this.service.getAirPollution().subscribe((response: any) => {
+        this.service.airPollution = response;
+        console.log(response);
+      });  
     });
   }
 

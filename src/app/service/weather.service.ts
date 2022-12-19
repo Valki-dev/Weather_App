@@ -22,7 +22,11 @@ export class WeatherService {
     
           this.getFiveDaysForecast().subscribe((response: any) => {
             this.forecast = response.list; 
-          });    
+          });
+
+          this.getAirPollution().subscribe((response: any) => {
+            this.airPollution = response;
+          });
         });
       }
       
