@@ -21,7 +21,7 @@
     background: rgba(54, 82, 121, 0.467) !important;
     color: white !important;
     border-radius: 16px !important;
-    
+
 }
 
 .iconoHora {
@@ -41,4 +41,20 @@
 
 .temperatura {
     font-size: x-large;
+}
+
+@media (max-width: 1090px) {
+    .iconoHora {
+        width: 15px;
+    }
+    p {
+        font-size: medium !important;
+    }
+}
+
+
+@media (max-width: 1230px) {
+    h4 {
+        font-size: large !important;
+    }
 }

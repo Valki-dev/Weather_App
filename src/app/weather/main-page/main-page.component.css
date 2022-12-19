@@ -34,3 +34,18 @@ img {
 .rojo {
     border: 1px solid red;
 }
+
+@media (max-width: 992px) {
+    .history {
+        width: 620px;
+    }
+}
+
+@media (max-width: 576px) {
+    .info {
+        width: 400px;
+    }
+    .history {
+        width: 420px;
+    }
+}

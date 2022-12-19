@@ -2,3 +2,15 @@ input {
     width: 700px !important;
     border-radius: 15px;
 }
+
+@media (max-width: 800px) {
+    input {
+        width: 480px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    input {
+        width: 290px !important;
+    }
+}
